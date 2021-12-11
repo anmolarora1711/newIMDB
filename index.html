@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New IMDB</title>
+    <!-- font awesome icons cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+<body>
+    <!-- header container -->
+    <div class="header">
+        <div class="logo-container">
+            <h1>New <span>IMDB</span></h1>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <a class="fav-movies-list-btn" href="./favourites.html"><li>My Favourites</li></a>
+            </ul>
+        </nav>
+
+        <form id="form">
+            <input type="text" id="search" placeholder="Search" class="search">
+        </form>
+    </div>
+    <!-- end of header container -->
+
+    <div class="heading" hidden>
+        Search Items:
+    </div>
+
+    <main id="main"></main>
+
+    <!-- home page js file -->
+    <script type="text/javascript" src="./script.js"></script>
+</body>
+</html>
