@@ -16,9 +16,11 @@ body{
 li, a, button{
     font-weight: 500;
     font-size: 18px;
+    text-decoration: none;
     color: #eee,
 }
 
+/* header */
 .header{
     background-color: #1f2024;
     width: 100%;
@@ -29,6 +31,7 @@ li, a, button{
     padding: 3.5rem 5%;
 }
 
+/* logo */
 .logo-container{
     margin-right: auto;
 }
@@ -44,6 +47,7 @@ li, a, button{
     font-weight: 800;
 }
 
+/* nav links */
 .nav-links{
     height: 100%;
 }
@@ -63,6 +67,7 @@ li, a, button{
     padding-right: 5rem;
 }
 
+/* search box */
 .search{
     border-radius: 50px;
     background-color: transparent;
@@ -83,6 +88,7 @@ li, a, button{
     color: #eee;
 }
 
+/* listing */
 main{
     display: flex;
     flex-wrap: wrap;
@@ -90,6 +96,7 @@ main{
     margin-top: 2rem;
 }
 
+/* movie */
 .movie {
     margin: 1rem;
     background-color: #066631;
@@ -127,7 +134,31 @@ main{
 
 .movie-btns{
     display: flex;
+    justify-content: space-around;
+    margin-bottom: 0.3rem;
+}
+
+.details-btn{
+    display: flex;
     justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: rgb(15, 14, 14);
+    border: 2px solid #eee;
+    color: #eee;
+    padding: 0.1rem 0.1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.add-btn{
+    border-radius: 50px;
+    background-color: rgb(15, 14, 14);
+    border: 2px solid #eee;
+    color: #eee;
+    padding: 0.1rem 0.1rem;
+    width: 100%;
+    cursor: pointer;
 }
 
 .remove-btn{
@@ -157,6 +188,7 @@ main{
     color: rgb(212, 207, 207);
 }
 
+/* description page */
 .details{
     display: flex;
     background-color: rgba(62, 224, 207, 0.6);
@@ -164,12 +196,13 @@ main{
 }
 
 .left-part{
-    margin-left: 10%;
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .right-part{
-    margin-right: 20%;
     width: 50%;
 }
 
@@ -202,6 +235,3 @@ main{
     justify-content: space-around;
     margin-bottom: 1.5rem;
 }
-
-
-

@@ -1,5 +1,6 @@
 const details = document.querySelector('.details');
 
+// after loading the entire page this function will run
 window.onload = () => {
     let url = new URL(document.location.href);
     console.log(url);
@@ -7,16 +8,19 @@ window.onload = () => {
     getDetails(movieId);
 };
 
+// function to get details of movie
 async function getDetails(movieId){
     const res = await fetch('http://www.omdbapi.com/?apikey=559e2a75&i=' + movieId);
     const resData = await res.json();
     console.log(resData);
 
+    // validation
     if(resData.Response === 'True'){
         showDetails(resData);
     }
 }
 
+// function to show movie details
 function showDetails(movie){
 
     const { Title, Poster, Year, Rated, Runtime, Genre, Director, Writer, Actors, Plot, Language, Country, Awards, imdbRating, BoxOffice } = movie;

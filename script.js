@@ -4,19 +4,20 @@ const APIURL = 'http://www.omdbapi.com/?apikey=' + APIKEY;
 const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
-const favBtn = document.querySelector('.fav-movies-list-btn');
 const heading = document.querySelector('.heading');
 
+// list to handle favourite movies
 let favMovies = [];
 
 const mydata = new Object();
 
-// Event Listeners
+// on submitting the name for movie in search Box
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const searchTerm = search.value.trim();
 
+    // validation
     if(searchTerm){
         getMovies(searchTerm);
         search.value = '';
@@ -24,16 +25,14 @@ form.addEventListener('submit', (e) => {
         return alert('Please provide a name to search');
     }
 });
-favBtn.addEventListener('click', showFavMovies);
 
-
+// function to get movies from fetch request
 async function getMovies(searchTerm) {
     
     const res = await fetch(APIURL + `&s=${searchTerm}`);
-    console.log(res);
     const resData = await res.json();
-    console.log(resData);
 
+    // validation
     if(resData.Response === "True"){
         mydata.movies = resData.Search;
         heading.setAttribute('hidden', 'true');
@@ -44,6 +43,7 @@ async function getMovies(searchTerm) {
     }
 }
 
+// function to show list of movies
 function showMovies(movies){
 
     main.innerHTML = '';
@@ -52,6 +52,7 @@ function showMovies(movies){
 
         const { Poster, Title, Year, imdbID } = movie;
 
+        // each movie element
         const movieEle = document.createElement('div');
         movieEle.classList.add('movie');
 
@@ -79,26 +80,18 @@ function showMovies(movies){
 
         main.appendChild(movieEle);
     });
-    return;
 }
 
+// function for adding movie to favourite list
 function addToFav(event, movieId){
     mydata.movies.forEach(movie => {
         if(!favMovies.includes(movie) && movie.imdbID == movieId){
             favMovies.push(movie);
             console.log(favMovies);
-            return alert('Movie successfully added to favourites');
+            alert('Movie successfully added to favourites');
         }
     });
-}
-
-function showFavMovies(){
-
-    if(favMovies.length){
-        const movies = JSON.parse(localStorage.getItem('favMovies'));
+    const movies = JSON.parse(localStorage.getItem('favMovies'));
         favMovies = favMovies.concat(movies);
         localStorage.setItem('favMovies', JSON.stringify(favMovies));
-    }
-
-    window.location.href = 'favourites.html';
 }

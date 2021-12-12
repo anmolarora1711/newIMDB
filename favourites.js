@@ -1,12 +1,14 @@
 const removeBtn = document.getElementsByClassName('remove-btn');
 const favourites = document.querySelector('.fav-list');
 
+// array for storing the favourite movies
 let favMovies;
 
+// after loading the entire page this function will run
 window.onload = () => {
+    // extracting favourite movies list from localStorage
     let sessionString = localStorage.getItem('favMovies');
     favMovies = JSON.parse(sessionString);
-    console.log(favMovies);
 
     if(!favMovies){
         return;
@@ -20,6 +22,7 @@ window.onload = () => {
 
         const { Poster, Title, Year, imdbID } = movie;
 
+        // each favourite movie element
         const movieEle = document.createElement('div');
         movieEle.classList.add('movie');
 
@@ -45,23 +48,26 @@ window.onload = () => {
         `
         favourites.appendChild(movieEle);
     });
-    return;
 }
 
+// function for removing movie from favourite list
 function removeMovie(event, movieId){
     event.preventDefault();
     let remBtn = event.target;
     if(remBtn.classList.contains('remove-btn')){
+        // will remove movie from dom
         remBtn.parentNode.parentNode.remove();
     }
+    // variable to hold list of favourite movies
     let movies = JSON.parse(localStorage['favMovies']);
     for(let i = 0; i < movies.length; i++){
-        console.log(movies[i].imdbID);
         if(movies[i].imdbID === movieId){
-            console.log('hello');
+            // will remove movie from movies
             movies.splice(i, 1);
             break;
         }
     }
+
+    // will remove movie from localStorage
     localStorage.setItem('favMovies', JSON.stringify(movies));
 }
