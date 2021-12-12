@@ -2,7 +2,7 @@
 
 A simple movie search app in which browse for movies and create favourite list.
 
-[Demo](https://anmolarora1711.github.io/newimdb/)
+[Demo](https://anmolarora1711.github.io/newIMDB/)
 
 ## Technologies used
 
