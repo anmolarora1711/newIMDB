@@ -9,6 +9,7 @@ window.onload = () => {
     // extracting favourite movies list from localStorage
     let sessionString = localStorage.getItem('favMovies');
     favMovies = JSON.parse(sessionString);
+    console.log(favMovies);
 
     if(!favMovies){
         return;

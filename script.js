@@ -6,9 +6,6 @@ const form = document.getElementById('form');
 const search = document.getElementById('search');
 const heading = document.querySelector('.heading');
 
-// list to handle favourite movies
-let favMovies = [];
-
 const mydata = new Object();
 
 // on submitting the name for movie in search Box
@@ -82,16 +79,25 @@ function showMovies(movies){
     });
 }
 
-// function for adding movie to favourite list
+// function for adding movie to favourites list in localStorage
 function addToFav(event, movieId){
-    mydata.movies.forEach(movie => {
-        if(!favMovies.includes(movie) && movie.imdbID == movieId){
-            favMovies.push(movie);
-            console.log(favMovies);
-            alert('Movie successfully added to favourites');
-        }
-    });
-    const movies = JSON.parse(localStorage.getItem('favMovies'));
-        favMovies = favMovies.concat(movies);
-        localStorage.setItem('favMovies', JSON.stringify(favMovies));
+    let movies = JSON.parse(localStorage.getItem('favMovies'));
+    console.log(typeof movies);
+    if(!movies){
+        mydata.movies.forEach(movie => {
+            if(movie.imdbID == movieId){
+                movies = [];
+                movies.push(movie);
+                alert('Movie successfully added to favourites');
+            }
+        });
+    }else{
+        mydata.movies.forEach(movie => {
+            if(!movies.includes(movie) && movie.imdbID == movieId){
+                movies.push(movie);
+                alert('Movie successfully added to favourites');
+            }
+        });
+    }
+    localStorage.setItem('favMovies', JSON.stringify(movies));
 }
