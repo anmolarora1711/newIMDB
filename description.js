@@ -3,7 +3,6 @@ const details = document.querySelector('.details');
 // after loading the entire page this function will run
 window.onload = () => {
     let url = new URL(document.location.href);
-    console.log(url);
     let movieId = url.search.substring(3);
     getDetails(movieId);
 };
@@ -12,7 +11,6 @@ window.onload = () => {
 async function getDetails(movieId){
     const res = await fetch('http://www.omdbapi.com/?apikey=559e2a75&i=' + movieId);
     const resData = await res.json();
-    console.log(resData);
 
     // validation
     if(resData.Response === 'True'){
@@ -48,6 +46,5 @@ function showDetails(movie){
             <h3><strong>Box Office Collection: </strong>${BoxOffice}</h3>
         </div>
     `
-    console.log(details);
 }
 

@@ -82,7 +82,6 @@ function showMovies(movies){
 // function for adding movie to favourites list in localStorage
 function addToFav(event, movieId){
     let movies = JSON.parse(localStorage.getItem('favMovies'));
-    console.log(typeof movies);
     if(!movies){
         mydata.movies.forEach(movie => {
             if(movie.imdbID == movieId){
