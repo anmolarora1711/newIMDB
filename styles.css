@@ -208,6 +208,7 @@ main{
 
 .left-part .movie-image{
     height: 100%;
+    max-width: 30vw;
     border-radius: 2%;
     box-shadow: 7px 7px 7px rgba(68, 68, 68, 0.6);
 }
